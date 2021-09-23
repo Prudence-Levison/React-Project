@@ -1,24 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Profile from "./component/Profile";
+import "./App.css";
+import OrderSummaary from "./component/OrderSummary";
+import Navbar from "./component/Navbar";
+import { BrowserRouter, Route,} from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <BrowserRouter>
+    <div>
+    <Navbar />
+    <switch>
+    <Route path="/profile" component={Profile} exact={true}/>
+    <Route path="/ordersummary" component={OrderSummaary} exact={true}/>
+    </switch>
+    
     </div>
+    
+      {/* <switch>
+        <Route path="/profile" src={Profile} Profile user={data.user} />
+        <Route
+          path="/OrderSummary"
+          component={OrderSummary}
+          OrderSummary
+          restaurant={data.restaurant}
+          user={data.user}
+          items={data.items}
+        />
+      </switch> */}
+    </BrowserRouter>
+
+    // <div className="App">
+
+    // </div>
   );
 }
 
